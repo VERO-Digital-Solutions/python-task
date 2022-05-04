@@ -1,8 +1,9 @@
 Hello dear python dev!
 
 This repository is supposed to act as a playground for your submission.
+Before getting started, please make sure to create a new branch (named like your github username) on which you commit and push your code regurarly.
+
 Below, you will find the **Task** definition.
-Please make sure to commit and push your code regurarly.
 
 Happy Hacking :computer:
 
