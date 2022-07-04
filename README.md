@@ -20,12 +20,12 @@ In particular, the script should:
 - Additionally, read and parse the locally provided [vehicles.csv](vehicles.csv)
 - Store both of them in an appropriate data structure and make sure the result is distinct
 - Filter out any resources that do not have a value set for `hu` field
-- For each `labelId` in `Vehicle::labelIds` resolve its `colorCode` using `https://api.baubuddy.de/dev/index.php/v1/labels/{labelId}`
+- For each `labelId` in the vehicle's JSON array `labelIds` resolve its `colorCode` using `https://api.baubuddy.de/dev/index.php/v1/labels/{labelId}`
 - Generate an `.xlsx` file that contains all resources and make sure that:
    - Rows are sorted by response field `gruppe`
    - Columns always contain `rnr` field
    - Only keys that match the input arguments are considered as additional columns (i.e. when the script is invoked with `kurzname` and `info`, print two extra columns)
-   - If `Vehicle::labelIds` are given and at least one `colorCode` could be resolved, use the first `colorCode` to tint the cell's text (if `labelIds` is given in `-k`)
+   - If `labelIds` are given and at least one `colorCode` could be resolved, use the first `colorCode` to tint the cell's text (if `labelIds` is given in `-k`)
    - If the `-c` flag is `True`, color each row depending on the following logic:
      - If `hu` is not older than 3 months --> green (`#007500`)
      - If `hu` is not older than 12 months --> orange (`#FFA500`)
