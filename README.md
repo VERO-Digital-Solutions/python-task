@@ -34,14 +34,15 @@ In particular, the script should:
 
 ## Hints
 You can use the curl library to authenticate, for example: 
-curl --request POST \
+
+`curl --request POST \
   --url https://api.baubuddy.de/index.php/login \
   --header 'Authorization: Basic QVBJX0V4cGxvcmVyOjEyMzQ1NmlzQUxhbWVQYXNz' \
   --header 'Content-Type: application/json' \
   --data '{
         "username":"365",
         "password":"1"
-}'
+}'`
 
 The response will contain a json object, having the access token in json["oauth"]["access_token"]. For all subsequent calls this has to be added to the headers as Authorization: Bearer {access_token}.
 
