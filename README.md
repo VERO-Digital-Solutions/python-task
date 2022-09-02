@@ -32,7 +32,7 @@ In particular, the script should:
      - If `hu` is older than 12 months --> red (`#b30000`)
    - The file should be named `vehicles_{current_date_iso_formatted}.xlsx`
 
-## Hints
+### Hints
 You can use the curl library to authenticate, for example: 
 
 `curl --request POST \
