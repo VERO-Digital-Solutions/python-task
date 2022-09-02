@@ -31,3 +31,37 @@ In particular, the script should:
      - If `hu` is not older than 12 months --> orange (`#FFA500`)
      - If `hu` is older than 12 months --> red (`#b30000`)
    - The file should be named `vehicles_{current_date_iso_formatted}.xlsx`
+
+## Hints
+You can use the curl library to authenticate, for example: 
+curl --request POST \
+  --url https://api.baubuddy.de/index.php/login \
+  --header 'Authorization: Basic QVBJX0V4cGxvcmVyOjEyMzQ1NmlzQUxhbWVQYXNz' \
+  --header 'Content-Type: application/json' \
+  --data '{
+        "username":"365",
+        "password":"1"
+}'
+
+The response will contain a json object, having the access token in json["oauth"]["access_token"]. For all subsequent calls this has to be added to the headers as Authorization: Bearer {access_token}.
+
+E.g.:
+
+`import requests
+
+url = "https://api.baubuddy.de/index.php/login"
+
+payload = {
+    "username": "365",
+    "password": "1"
+}
+headers = {
+    "Authorization": "Basic QVBJX0V4cGxvcmVyOjEyMzQ1NmlzQUxhbWVQYXNz",
+    "Content-Type": "application/json"
+}
+
+response = requests.request("POST", url, json=payload, headers=headers)
+
+print(response.text)`
+
+Note that using this library is not a requirement, if you can do it in another way. 
